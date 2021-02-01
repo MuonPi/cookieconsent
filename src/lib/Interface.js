@@ -246,7 +246,7 @@ export default class Interface {
 
         // We set config to full consent
         for (let key in window.CookieConsent.config.categories) {
-          window.CookieConsent.config.categories[key].wanted =
+          window.CookieConsent.config.categories[key].wanted = 
             window.CookieConsent.config.categories[key].checked = true;
         }
 
@@ -269,8 +269,8 @@ export default class Interface {
 
         // We set config to full reject
         for (let key in window.CookieConsent.config.categories) {
-          window.CookieConsent.config.categories[key].wanted =
-            window.CookieConsent.config.categories[key].checked = false;
+          window.CookieConsent.config.categories[key].wanted = 
+            window.CookieConsent.config.categories[key].checked = (window.CookieConsent.config.categories[key].needed === true) ? true : false;
         }
 
         this.writeBufferToDOM();
